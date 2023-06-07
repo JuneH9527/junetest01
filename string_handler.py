@@ -1,32 +1,29 @@
-import pyperclip
 import string
 
 charset = set(string.punctuation)
-str1 = '/product/api/instance_product/v1/client/product_list'
 
 
-def replace_and_capitalize(string1, if_remove_first_char=0):
-    """
-    _后面的一位字母大写，并且去掉该_，再将/替换为_
+class StringHandler(object):
+    def __init__(self):
+        pass
 
-    '/product/api/instance_product/v1/client/product_list'
-    ->  product_api_instanceProduct_v1_client_productList
-    """
-    while string1.find('_') != -1:
-        index = string1.find('_')
-        if index == len(string1) - 1:
-            string1 = string1[:index]
-        else:
-            string1 = string1[:index] + string1[index + 1].upper() + string1[index + 2:]
-    string1 = string1.replace('/', '_')
-    if if_remove_first_char:
-        if string1[0] in charset:
-            return string1[1:]
-        else:
-            return string1
-    else:
-        return string1
+    def replace_and_capitalize(self, input_str, replace_str):
+        """
+            replace_str后面的一位字母大写，并将replace_str去掉。
 
+            str1 = '/product/api/instance_product/v1/client/product_list'
+            replace_and_capitalize(str1, '_')
+            ->
+            /product/api/instanceProduct/v1/client/productList
+        """
+        replace_str_len = len(replace_str)
+        while input_str.find(replace_str) != -1:
+            index = input_str.find(replace_str)
+            # 确保replace_str在最后一位时，无需做大写处理
+            if index + replace_str_len == len(input_str):
+                input_str = input_str[:index]
+            else:
+                input_str = input_str[:index] + input_str[index + replace_str_len].upper() + input_str[index + 1 + replace_str_len:]
 
-pyperclip.copy(replace_and_capitalize(str1, 1))
-print(replace_and_capitalize(str1, 1))
+        return input_str
+
