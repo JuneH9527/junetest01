@@ -18,16 +18,16 @@ class YeastarTestTools(object):
         def param_str_to_param_list(param_str):
             param_str = str(param_str)
             param_list = []
-            for i in param_str.split('),'):  # 1.按'),'分隔字符串，变成一个个列表
+            for i in param_str.split('),'):                 # 1.按'),'分隔字符串，变成一个个列表
                 i = i.strip()
-                index = i.rfind('(')  # 2.找最后一个'('的位置
+                index = i.rfind('(')                        # 2.找最后一个'('的位置
                 param_list.append(i[:index])
             return param_list
 
-        param_list = param_str_to_param_list(param_str)  # 1.转成param_list
+        param_list = param_str_to_param_list(param_str)      # 1.转成param_list
         print(param_list)
         str_cp = sql_str
-        for i in param_list:  # 2.替换?项
+        for i in param_list:        # 2.替换?项
             str_cp = str_cp.replace("?", f"'{i}'", 1)
 
         if copy:
