@@ -13,6 +13,7 @@ class YeastarTestTools(object):
             pyperclip.copy(new_casename)
         return new_casename
 
+    # 2. 合并日志sql、日志参数为完整的sql
     def sql_string_merge(self, sql_str, param_str, copy=True):
         def type_str_deal(value):
             value = str(value)
