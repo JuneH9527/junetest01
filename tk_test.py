@@ -41,7 +41,7 @@ button_clear = tk.Button(window, text="清空数据", command=clear_text)
 
 # 将按钮放置在标签下方
 button.place(x=450, y=350)
-button_clear.place(x=350,y=350)
+button_clear.place(x=350, y=350)
 
 # 进入主循环，等待事件发生
 window.mainloop()
