@@ -30,11 +30,18 @@ def on_click():
     time.sleep(0.5)
     output.insert("end", ytt.sql_string_merge(sql_str, param_str))
 
+def clear_text():
+    input1.delete("1.0", "end")
+    input2.delete("1.0", "end")
+    output.delete("1.0", "end")
+    window.update()
 
 button = tk.Button(window, text="合并sql", command=on_click)
+button_clear = tk.Button(window, text="清空数据", command=clear_text)
 
 # 将按钮放置在标签下方
 button.place(x=450, y=350)
+button_clear.place(x=350,y=350)
 
 # 进入主循环，等待事件发生
 window.mainloop()
