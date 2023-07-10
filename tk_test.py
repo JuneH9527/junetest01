@@ -46,6 +46,7 @@ button_clear.place(x=350, y=350)
 # 进入主循环，等待事件发生
 window.mainloop()
 print(123)
+print(456)
 
 """
 1. 调整控件位置：
