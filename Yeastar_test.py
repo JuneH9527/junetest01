@@ -50,3 +50,4 @@ if __name__ == '__main__':
     print(ytt.sql_string_merge(sql_str, param_str))
 
     # 3.1 123
+    # 4.test
